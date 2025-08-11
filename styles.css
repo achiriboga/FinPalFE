@@ -6,6 +6,21 @@ body {
   color: #181c1f;
 }
 
+.finpal-logo {
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-size: 2.8em;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #181c1f;
+  margin-bottom: 36px;
+  background: linear-gradient(90deg, #27ae60 60%, #181c1f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow: 0 2px 12px #27ae6012;
+}
+
 .container {
   max-width: 600px;
   margin: 48px auto;
