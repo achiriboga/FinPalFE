@@ -54,11 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const lines = text.trim().split('\n');
     const headers = lines[0].split(',').map(h => h.trim());
     if (headers.length !== 4 ||
-        headers[0].toLowerCase() !== 'data' ||
+        headers[0].toLowerCase() !== 'date' ||
         headers[1].toLowerCase() !== 'amount' ||
         headers[2].toLowerCase() !== 'description' ||
         headers[3].toLowerCase() !== 'category') {
-      uploadError.textContent = 'CSV must have columns: Data, Amount, Description, Category.';
+      uploadError.textContent = 'CSV must have columns: Date, Amount, Description, Category.';
       return;
     }
     csvData = lines.slice(1).map(line => {
