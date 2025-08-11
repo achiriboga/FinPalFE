@@ -1,0 +1,146 @@
+body {
+  background: #f5f7fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #181c1f;
+}
+
+.container {
+  max-width: 600px;
+  margin: 48px auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(24, 28, 31, 0.10);
+  padding: 40px 28px 32px 28px;
+  text-align: center;
+  border: 1.5px solid #181c1f10;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 36px;
+  filter: drop-shadow(0 2px 8px #181c1f22);
+}
+
+.upload-box {
+  display: block;
+  border: 2.5px dashed #27ae60;
+  border-radius: 14px;
+  padding: 48px 0;
+  background: #181c1f;
+  color: #27ae60;
+  font-size: 1.13em;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 18px;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 12px #27ae6012;
+}
+
+.upload-box.dragover {
+  border-color: #219150;
+  background: #23282b;
+  color: #2ecc71;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin-bottom: 14px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.success-message {
+  color: #27ae60;
+  margin-bottom: 14px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+select, button {
+  margin: 10px 10px 18px 10px;
+  padding: 12px 18px;
+  border-radius: 9px;
+  border: 1.5px solid #181c1f22;
+  font-size: 1.05em;
+  background: #f5f7fa;
+  color: #181c1f;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px #181c1f08;
+}
+
+select:focus, button:focus {
+  border: 1.5px solid #27ae60;
+  box-shadow: 0 0 0 2px #27ae6015;
+}
+
+button {
+  background: linear-gradient(90deg, #27ae60 60%, #181c1f 100%);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px #27ae6012;
+}
+
+button:disabled {
+  background: #b6d4be;
+  color: #fff;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0 16px 0;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #181c1f10;
+}
+
+th, td {
+  border: none;
+  padding: 12px 8px;
+  text-align: left;
+}
+
+th {
+  background: #181c1f;
+  color: #27ae60;
+  font-weight: 600;
+  font-size: 1.04em;
+  letter-spacing: 0.01em;
+}
+
+td {
+  border-bottom: 1px solid #e3e8ee;
+  font-size: 1em;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 18px 4vw 18px 4vw;
+  }
+  .logo {
+    width: 90px;
+  }
+  th, td {
+    font-size: 0.97em;
+    padding: 8px 4px;
+  }
+}
