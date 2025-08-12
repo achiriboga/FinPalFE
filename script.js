@@ -50,29 +50,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function parseCSV(text) {
-    // Simple CSV parsing (no external lib)
-    const lines = text.trim().split('\n');
-    const headers = lines[0].split(',').map(h => h.trim());
-    if (headers.length !== 4 ||
-        headers[0].toLowerCase() !== 'date' ||
-        headers[1].toLowerCase() !== 'amount' ||
-        headers[2].toLowerCase() !== 'description' ||
-        headers[3].toLowerCase() !== 'category') {
-      uploadError.textContent = 'CSV must have columns: Date, Amount, Description, Category.';
-      return;
-    }
-    csvData = lines.slice(1).map(line => {
-      const cols = line.split(',').map(c => c.trim());
-      return {
-        Data: cols[0],
-        Amount: cols[1],
-        Description: cols[2],
-        Category: cols[3]
-      };
-    });
-    uploadSuccess.textContent = 'File staged and ready to use.';
-    filterSection.classList.remove('hidden');
+  // Use PapaParse for robust CSV parsing
+  const result = Papa.parse(text, {
+    header: true,
+    skipEmptyLines: true,
+    trimHeaders: true
+  });
+  if (result.errors.length) {
+    uploadError.textContent = 'Error parsing CSV file.';
+    return;
   }
+  const headers = result.meta.fields.map(h => h.trim().toLowerCase());
+  if (
+    headers.length !== 4 ||
+    (headers[0] !== 'date') ||
+    headers[1] !== 'amount' ||
+    headers[2] !== 'description' ||
+    headers[3] !== 'category'
+  ) {
+    uploadError.textContent = 'CSV must have columns: Date (or Data), Amount, Description, Category.';
+    return;
+  }
+  csvData = result.data.map(row => ({
+    Data: row[Object.keys(row)[0]],
+    Amount: row[Object.keys(row)[1]],
+    Description: row[Object.keys(row)[2]],
+    Category: row[Object.keys(row)[3]]
+  }));
+  uploadSuccess.textContent = 'File staged and ready to use.';
+  filterSection.classList.remove('hidden');
+}
 
   // Enable Continue button when both dropdowns are selected
   [categorySelect, monthSelect].forEach(sel => {
@@ -87,20 +94,20 @@ document.addEventListener('DOMContentLoaded', () => {
     continueBtn.disabled = true;
   });
 
-  function renderTable() {
-    if (!csvData) return;
-    let html = '<thead><tr><th>Data</th><th>Amount</th><th>Description</th><th>Category</th></tr></thead><tbody>';
-    csvData.forEach(row => {
-      html += `<tr>
-        <td>${row.Data}</td>
-        <td>${row.Amount}</td>
-        <td>${row.Description}</td>
-        <td>${row.Category}</td>
-      </tr>`;
-    });s
-    html += '</tbody>';
-    csvTable.innerHTML = html;
-  }
+function renderTable() {
+  if (!csvData) return;
+  let html = '<thead><tr><th>Data</th><th>Amount</th><th>Description</th><th>Category</th></tr></thead><tbody>';
+  csvData.forEach(row => {
+    html += `<tr>
+      <td>${row.Data}</td>
+      <td>${row.Amount}</td>
+      <td>${row.Description}</td>
+      <td>${row.Category}</td>
+    </tr>`;
+  }); // <-- removed stray 's' here
+  html += '</tbody>';
+  csvTable.innerHTML = html;
+}
 
   processBtn.addEventListener('click', () => {
     // Simulate API call/processing
