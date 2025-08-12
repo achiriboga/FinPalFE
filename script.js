@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     uploadBox.classList.remove('dragover');
     handleFile(e.dataTransfer.files[0]);
   });
-  uploadBox.addEventListener('click', () => fileInput.click());
+  // uploadBox.addEventListener('click', () => fileInput.click());
   fileInput.addEventListener('change', (e) => {
     handleFile(e.target.files[0]);
   });
