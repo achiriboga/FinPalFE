@@ -22,8 +22,8 @@ body {
 
 .container {
   width: 90vw;
-  max-width: 600px;
-  min-width: 280px;
+  max-width: 400px;
+  min-width: 600px;
   margin: 48px auto;
   background: #fff;
   border-radius: 20px;
