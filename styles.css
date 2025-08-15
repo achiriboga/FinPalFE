@@ -27,12 +27,11 @@ body {
   border-radius: 8px;
 }
 
-/* hover/tap micro interactions */
-.finpal-logo:hover,
-.finpal-logo:focus {
-  transform: scale(1.03) translateY(-2px);
-  filter: drop-shadow(0 12px 36px rgba(39,174,96,0.16));
-  animation-play-state: paused;
+/* shimmer animation moves the gradient used for text */
+@keyframes finpal-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 
