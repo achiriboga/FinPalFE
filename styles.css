@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-  width: 90vw;
+  width: 75vw;
   max-width: 4000px;
   min-width: 600px;
   margin: 48px auto;
@@ -40,6 +40,9 @@ body {
 }
 
 .upload-box {
+  box-sizing: border-box; /* include padding/border in width */
+  width: 100%;            /* fill the container's inner width */
+  max-width: 100%;        /* never overflow */
   display: block;
   border: 2.5px dashed #27ae60;
   border-radius: 14px;
