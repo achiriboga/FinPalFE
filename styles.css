@@ -21,12 +21,14 @@ body {
 }
 
 .container {
+  width: 90vw;
   max-width: 600px;
+  min-width: 280px;
   margin: 48px auto;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(24, 28, 31, 0.10);
-  padding: 40px 28px 32px 28px;
+  padding: 40px 4vw 32px 4vw;
   text-align: center;
   border: 1.5px solid #181c1f10;
 }
