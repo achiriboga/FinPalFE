@@ -14,6 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
   let csvData = null;
   let fileName = '';
 
+    // add this function
+  function stageFile(file) {
+    fileName = file.name;
+    csvData = null; // not parsing now, only staging
+    uploadSuccess.innerHTML = `File <strong>${fileName}</strong> staged successfully. You can now select the filters.`;
+    filterSection.classList.remove('hidden');
+    categorySelect.disabled = false;
+    monthSelect.disabled = false;
+    continueBtn.disabled = !(categorySelect.value && monthSelect.value);
+  }
+
   // Drag & Drop handlers
   uploadBox.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -28,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleFile(e.dataTransfer.files[0]);
   });
   // uploadBox.addEventListener('click', () => fileInput.click());
-  fileInput.addEventListener('change', (e) => {
+    fileInput.addEventListener('change', (e) => {
     handleFile(e.target.files[0]);
   });
 
@@ -42,10 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // Stage the file without reading/parsing it
     stageFile(file);
-    fileName = file.name; // Store the file name for later use
-    uploadSuccess.textContent = `File ${fileName} staged successfully. You can now select the filters.`;
-    filterSection.classList.remove('hidden');
-    continueBtn.disabled = true; // Disable continue button until filters are selected
+    // fileName = file.name; // Store the file name for later use
+    // uploadSuccess.textContent = `File ${fileName} staged successfully. You can now select the filters.`;
+    // filterSection.classList.remove('hidden');
+    // continueBtn.disabled = true; // Disable continue button until filters are selected
     // Uncomment the following lines if you want to read and parse the CSV file immediately
     // const reader = new FileReader();
     // reader.onload = function(e) {
