@@ -10,7 +10,7 @@ body {
   font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
   font-size: clamp(2rem, 6vw, 3.2rem);
   font-weight: 900;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: none;
   display: inline-block;
   position: relative;
@@ -25,6 +25,7 @@ body {
   animation: finpal-shimmer 3.5s linear infinite;
   padding: 4px 8px;
   border-radius: 8px;
+  margin-bottom: 56px;
 }
 
 /* hover/tap micro interactions */
